@@ -34,12 +34,18 @@ const Router = {
                 }
                 break;   
         }
+
         if (pageElement) {
-            document.querySelector("main").innerHTML = "";
-            document.querySelector("main").appendChild(pageElement);
+            const cache = document.querySelector("main");
+            cache.innerHTML = "";
+            cache.appendChild(pageElement);
+            window.scrollX = 0;
+            window.scrollY = 0;
+
+        } else {
+            document.querySelector("main").innerHTML = "Oups, 404!"
+
         }
-    
-        window.scrollX = 0;
     }
 }
 
