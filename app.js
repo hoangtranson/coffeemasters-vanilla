@@ -17,6 +17,7 @@ import OrderPage from './pages/order-page/order-page.js';
 
 window.app = {}
 app.store = Store;
+app.router = Router;
 
 window.addEventListener("DOMContentLoaded", () => {
     console.log("DOM is ready");
