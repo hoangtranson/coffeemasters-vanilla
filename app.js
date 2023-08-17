@@ -8,3 +8,8 @@ HTMLElement.prototype.$ = (s) => this.querySelectorAll(s);
 window.addEventListener("DOMContentLoaded", () => {
     console.log("DOM is ready");
 });
+
+import Store from './services/store.js';
+
+window.app = {}
+app.store = Store;
