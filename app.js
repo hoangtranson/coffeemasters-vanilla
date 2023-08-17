@@ -9,6 +9,8 @@ import Store from './services/store.js';
 import { loadData } from "./services/menu.js";
 import Router from './services/router.js';
 
+import ProductItem from './components/product-item/product-item.js';
+
 import MenuPage from './pages/menu-page/menu-page.js';
 import DetailsPage from './pages/detail-page/detail-page.js';
 import OrderPage from './pages/order-page/order-page.js';
