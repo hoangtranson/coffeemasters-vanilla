@@ -8,7 +8,12 @@ const Router = {
             });
         });  
         // Process initial URL   
+
         Router.go(location.pathname);
+        
+        window.addEventListener('popstate',  event => {
+            Router.go(event.state.route, false);
+        });
     },    
     go: (route, addToHistory=true) => {
         if (addToHistory) {

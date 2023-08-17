@@ -4,9 +4,16 @@ export default class OrderPage extends HTMLElement {
 
         this.root = this.attachShadow({ mode: "open" });
 
-        const template = document.getElementById("order-form-template");
-        const content = template.content.cloneNode(true);
-        this.root.appendChild(content);
+        const styles = document.createElement("style");
+        this.root.appendChild(styles);
+
+
+        async function loadCSS() {
+            const request = await fetch("./pages/order-page/order-page.css");
+            styles.textContent = await request.text();
+        }
+
+        loadCSS();
     }
 }
-customElements.define("order-page", DetailsPage);
+customElements.define("order-page", OrderPage);

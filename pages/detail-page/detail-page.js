@@ -2,9 +2,17 @@ export default class DetailsPage extends HTMLElement {
     constructor() {
         super();
         this.root = this.attachShadow({ mode: "open" });
-        const template = document.getElementById("details-page-template");
-        const content = template.content.cloneNode(true);
-        this.root.appendChild(content);   
+        
+        const styles = document.createElement("style");
+        this.root.appendChild(styles);
+
+
+        async function loadCSS() {
+            const request = await fetch("./pages/detail-page/detail-page.css");
+            styles.textContent = await request.text();
+        }
+
+        loadCSS();
     }
 }
 customElements.define("details-page", DetailsPage);

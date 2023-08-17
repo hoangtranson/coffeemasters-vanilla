@@ -4,9 +4,21 @@ export default class MenuPage extends HTMLElement {
 
         this.root = this.attachShadow({ mode: "open" });
 
-        const template = document.getElementById("menu-page-template");
-        const content = template.content.cloneNode(true);
-        this.root.appendChild(content);
+        const styles = document.createElement("style");
+        this.root.appendChild(styles);
+
+        // const template = document.getElementById("menu-page-template");
+        // const content = template.content.cloneNode(true);
+        // this.root.appendChild(content);
+
+        async function loadCSS() {
+            const request = await fetch("./pages/menu-page/menu-page.css");
+            styles.textContent = await request.text();
+        }
+
+        loadCSS();
     }
+
+    
 }
-customElements.define("menu-page", DetailsPage);
+customElements.define("menu-page", MenuPage);
