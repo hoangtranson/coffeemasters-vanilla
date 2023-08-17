@@ -7,9 +7,11 @@ HTMLElement.prototype.$ = (s) => this.querySelectorAll(s);
 
 import Store from './services/store.js';
 import { loadData } from "./services/menu.js";
+import Router from './services/router.js';
 
 window.addEventListener("DOMContentLoaded", () => {
     console.log("DOM is ready");
+    Router.init();
     loadData();
 });
 
