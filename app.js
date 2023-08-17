@@ -5,11 +5,13 @@ HTMLElement.prototype.off = (a, b) => this.removeEventListener(a, b);
 HTMLElement.prototype.$ = (s) => this.querySelector(s);
 HTMLElement.prototype.$ = (s) => this.querySelectorAll(s);
 
+import Store from './services/store.js';
+import { loadData } from "./services/menu.js";
+
 window.addEventListener("DOMContentLoaded", () => {
     console.log("DOM is ready");
+    loadData();
 });
-
-import Store from './services/store.js';
 
 window.app = {}
 app.store = Store;
