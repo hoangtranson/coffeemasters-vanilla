@@ -9,11 +9,16 @@ import Store from './services/store.js';
 import { loadData } from "./services/menu.js";
 import Router from './services/router.js';
 
+window.app = {}
+app.store = Store;
+
 window.addEventListener("DOMContentLoaded", () => {
     console.log("DOM is ready");
     Router.init();
     loadData();
 });
 
-window.app = {}
-app.store = Store;
+window.addEventListener('popstate',  event => {
+    Router.go(event.state.route, false);
+});
+
